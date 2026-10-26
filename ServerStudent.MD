@@ -1,3 +1,3 @@
-Student: Caleb Claytor
-Date: 03/23/3036
-Hello, World!
+Student: Carlo Flores
+Date: October 25, 2026
+This is a documentation for this project
