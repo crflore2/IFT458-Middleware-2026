@@ -1,0 +1,1 @@
+For this project, the mobile application was made using React Native and Expo. The purpose of the app is to let users access the Book Exchange Platform from a mobile interface. It connects to the same backend API that the web application uses, so the two versions can use the same data and functions.
