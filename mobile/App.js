@@ -3,7 +3,12 @@
 
 // Manages screen navigation and user authentication state
 import React, { useState, useEffect } from 'react';
-import { View, Text, TouchableOpacity, StyleSheet, StatusBar, Platform } from 'react-native';
+import { createStackNavigator } from '@react-navigation/stack';
+import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
+import { NavigationContainer } from '@react-navigation/native';
+import styles from './styles';
+import { View, Text, TouchableOpacity, StyleSheet, StatusBar, Platform, ActivityIndicator } from 'react-native';
+
 
 // Import all screen components
 import HomeScreen from './screens/HomeScreen';
@@ -126,13 +131,13 @@ const AppNavigator = () => {
     useEffect(() => {
         const checkSavedUser = async () => {
             try {
-                loggermiddleware('Checking saved user');
+                console.log('Checking saved user');
                 const savedData = await getSavedUser();
                 if (savedData) {
                     login(savedData.user, savedData.token);
                 }
             } catch (error) {
-                loggermiddleware('Error checking saved user:', error);
+                console.log('Checking saved user');
                 setAuthError('Failed to load saved session');
             } finally {
                 setLoading(false);

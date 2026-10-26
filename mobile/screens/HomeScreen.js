@@ -19,6 +19,7 @@ import React, { useState, useEffect } from 'react';
 // TouchableOpacity = like a <button> in HTML, it is a pressable element
 //                    "Opacity" means it becomes slightly transparent when pressed
 // ScrollView = like a <div> with overflow:scroll, lets content scroll if too long
+import { useNavigation } from '@react-navigation/native';
 import {
     View,
     Text,
@@ -32,7 +33,8 @@ import {
 // It receives 'navigation' as a prop from the App.js parent component
 // 'navigation' is an object that lets us switch between screens
 // We pass it from App.js so this screen can tell App.js to change the page
-const HomeScreen = ({ navigation }) => {
+const HomeScreen = () => {
+  const navigation = useNavigation();
 
     // This is the JSX that React Native will display on the phone screen
     // In React Native, ALL text must be inside <Text> tags
@@ -76,7 +78,8 @@ const HomeScreen = ({ navigation }) => {
                 {/* Login button */}
                 <TouchableOpacity
                     style={styles.button}
-                    onPress={() => navigation('login')}
+                    onPress={() => navigation.navigate('Login')}
+
                 >
                     <Text style={styles.buttonText}>Login</Text>
                 </TouchableOpacity>
@@ -84,7 +87,8 @@ const HomeScreen = ({ navigation }) => {
                 {/* Register button */}
                 <TouchableOpacity
                     style={[styles.button, styles.buttonSecondary]}
-                    onPress={() => navigation('register')}
+                    onPress={() => navigation.navigate('Register')}
+
                 >
                     <Text style={styles.buttonText}>Register</Text>
                 </TouchableOpacity>
@@ -92,7 +96,8 @@ const HomeScreen = ({ navigation }) => {
                 {/* Book Exchange button */}
                 <TouchableOpacity
                     style={[styles.button, styles.buttonInfo]}
-                    onPress={() => navigation('bookExchange')}
+                    onPress={() => navigation.navigate('BookExchange')}
+
                 >
                     <Text style={styles.buttonText}>Book Exchange</Text>
                 </TouchableOpacity>
